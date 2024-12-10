@@ -439,6 +439,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
             const languageButtons = document.querySelectorAll('.language-btn');
             
             function setLanguage(lang) {
@@ -455,6 +457,9 @@
                 // Update HTML lang attribute
                 document.documentElement.lang = lang;
             }
+
+            const lang = urlParams.get('language');
+            setLanguage(lang);
             
             languageButtons.forEach(btn => {
                 btn.addEventListener('click', () => {
