@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Henrik Stumpf - Resume</title>
+    <title>Henrik Stumpf</title>
     <style>
+        /* Previous styles remain the same */
         :root {
             --primary-color: #2d3748;
             --secondary-color: #4a5568;
@@ -27,7 +28,7 @@
             background-color: var(--background-color);
             color: var(--primary-color);
             line-height: 1.6;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -184,6 +185,49 @@
             color: var(--accent-color);
             letter-spacing: 0.1em;
         }
+        
+        .language-switcher {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            background-color: var(--light-gray);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .language-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            background: none;
+            color: var(--secondary-color);
+            transition: all 0.2s;
+        }
+
+        .language-btn.active {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .language-btn:hover:not(.active) {
+            background-color: var(--hover-color);
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        [data-lang].active {
+            display: block;
+        }
+
+        .skill-item [data-lang].active {
+            display: inline;
+        }
 
         @media (max-width: 640px) {
             body {
@@ -206,99 +250,208 @@
             .experience-item, .education-item {
                 padding: 1rem;
             }
+
+            .language-switcher {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="language-switcher">
+        <button class="language-btn active" data-lang-btn="en">EN</button>
+        <button class="language-btn" data-lang-btn="de">DE</button>
+    </div>
+
     <header>
         <h1>Henrik Stumpf</h1>
-        <div class="title">M.Sc. Electrical Engineering and Information Technology</div>
+        <div class="title">
+            <span data-lang="en" class="active">M.Sc. Electrical Engineering and Information Technology</span>
+            <span data-lang="de">M.Sc. Elektrotechnik und Informationstechnik</span>
+        </div>
         <div class="summary">
-            Electrical engineering graduate with focus on signal processing and machine learning.
-            Experience in embedded systems development and wireless sensing applications.
+            <span data-lang="en" class="active">
+                Electrical engineering graduate with focus on signal processing and machine learning.
+                Experience in embedded systems development and wireless sensing applications.
+            </span>
+            <span data-lang="de">
+                Elektrotechnik-Absolvent mit Schwerpunkt auf Signalverarbeitung und maschinellem Lernen.
+                Erfahrung in Embedded-Systems-Entwicklung und Wireless-Sensing-Anwendungen.
+            </span>
         </div>
         <div class="contact-info">
-            <a href="mailto:henrik.stumpf@gmx.de" aria-label="Email">henrik.stumpf@gmx.de</a>
-            <a href="tel:+13023901513" aria-label="Phone">+1 (302) 390 1513</a>
-            <a href="https://maps.app.goo.gl/aV5QoSeGG8YBZx3DA" aria-label="Address">Sunnyvale, CA</a>
-            <a href="https://de.linkedin.com/in/henrik-stumpf" aria-label="LinkedIn Profile">LinkedIn: henrik-stumpf</a>
+            <a href="mailto:henrik.stumpf@gmx.de">henrik.stumpf@gmx.de</a>
+            <a href="tel:+13023901513">+1 (302) 390 1513</a>
+            <a href="https://maps.app.goo.gl/aV5QoSeGG8YBZx3DA">
+                <span data-lang="en" class="active">Sunnyvale, CA</span>
+                <span data-lang="de">Sunnyvale, USA</span>
+            </a>
+            <a href="https://de.linkedin.com/in/henrik-stumpf">LinkedIn: henrik-stumpf</a>
         </div>
     </header>
 
     <section class="section">
-        <h2>Experience</h2>
+        <h2>
+            <span data-lang="en" class="active">Experience</span>
+            <span data-lang="de">Berufserfahrung</span>
+        </h2>
         <div class="experience-item">
-            <h3>Wireless Sensing AI Intern</h3>
+            <h3>
+                <span data-lang="en" class="active">Wireless Sensing AI Intern</span>
+                <span data-lang="de">Praktikant Wireless Sensing AI</span>
+            </h3>
             <div class="period">November 2024 - December 2024</div>
-            <div class="institution">Robert Bosch LLC - Research and Development</div>
-            <div class="location">Sunnyvale, California</div>
+            <div class="institution">Robert Bosch LLC - 
+                <span data-lang="en" class="active">Research and Development</span>
+                <span data-lang="de">Forschung und Entwicklung</span>
+            </div>
+            <div class="location">Sunnyvale, USA</div>
             <div class="details">
                 <ul>
-                    <li>Development of wireless sensing applications using multi-static ultra-wide band (UWB) radar</li>
+                    <li>
+                        <span data-lang="en" class="active">Development of wireless sensing applications using multi-static ultra-wide band (UWB) radar</span>
+                        <span data-lang="de">Entwicklung von Wireless-Sensing-Anwendungen mittels multistatischem Ultra-Wideband (UWB) Radar</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <h2>Education</h2>
+        <h2>
+            <span data-lang="en" class="active">Education</span>
+            <span data-lang="de">Ausbildung</span>
+        </h2>
         <div class="education-item">
-            <h3>Master's Thesis</h3>
+            <h3>
+                <span data-lang="en" class="active">Master's Thesis</span>
+                <span data-lang="de">Masterarbeit</span>
+            </h3>
             <div class="period">April 2024 - October 2024</div>
             <div class="institution">Robert Bosch LLC</div>
-            <div class="location">Renningen, Germany</div>
+            <div class="location">
+                <span data-lang="en" class="active">Renningen, Germany</span>
+                <span data-lang="de">Renningen, Deutschland</span>
+            </div>
             <div class="details">
                 <ul>
                     <li>Information und Automation</li>
-                    <li>Grade: 1.1 (Excellent)</li>
+                    <li>
+                        <span data-lang="en" class="active">Grade: 1.1 (Excellent)</span>
+                        <span data-lang="de">Note: 1,1 (Sehr gut)</span>
+                    </li>
                 </ul>
             </div>
         </div>
 
         <div class="education-item">
-            <h3>Bachelor's Thesis</h3>
+            <h3>
+                <span data-lang="en" class="active">Bachelor's Thesis</span>
+                <span data-lang="de">Bachelorarbeit</span>
+            </h3>
             <div class="period">October 2018 - September 2022</div>
-            <div class="institution">Karlsruhe Institute for Technology (KIT)</div>
-            <div class="location">Karlsruhe, Germany</div>
+            <div class="institution">
+                <span data-lang="en" class="active">Karlsruhe Institute for Technology (KIT)</span>
+                <span data-lang="de">Karlsruher Institut für Technologie (KIT)</span>
+            </div>
+            <div class="location">
+                <span data-lang="en" class="active">Karlsruhe, Germany</span>
+                <span data-lang="de">Karlsruhe, Deutschland</span>
+            </div>
             <div class="details">
                 <ul>
-                    <li>Conception, Development and Evaluation of Voice-Controlled Trunk Comfort Function</li>
-                    <li>Grade: 1.5 (Very Good)</li>
+                    <li>
+                        <span data-lang="en" class="active">Conception, Development and Evaluation of Voice-Controlled Trunk Comfort Function</span>
+                        <span data-lang="de">Konzeption, Entwicklung und Evaluierung Komfortfunktion sprachgesteuerter Kofferraum</span>
+                    </li>
+                    <li>
+                        <span data-lang="en" class="active">Grade: 1.5 (Very Good)</span>
+                        <span data-lang="de">Note: 1,5 (Sehr gut)</span>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <h2>Technical Skills</h2>
+        <h2>
+            <span data-lang="en" class="active">Technical Skills</span>
+            <span data-lang="de">Technische Fähigkeiten</span>
+        </h2>
         <div class="skills-grid">
             <div class="skill-item">
-                <span>Digital Signal Processing</span>
+                <span>
+                    <span data-lang="en" class="active">Digital Signal Processing</span>
+                    <span data-lang="de">Digitale Signalverarbeitung</span>
+                </span>
                 <span class="skill-level">●●○○</span>
             </div>
             <div class="skill-item">
-                <span>Machine Learning</span>
+                <span>
+                    <span data-lang="en" class="active">Machine Learning</span>
+                    <span data-lang="de">Maschinelles Lernen</span>
+                </span>
                 <span class="skill-level">●●○○</span>
             </div>
             <div class="skill-item">
-                <span>PCB Design</span>
+                <span>
+                    <span data-lang="en" class="active">PCB Design</span>
+                    <span data-lang="de">PCB-Design</span>
+                </span>
                 <span class="skill-level">○○○○</span>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <h2>Languages</h2>
+        <h2>
+            <span data-lang="en" class="active">Languages</span>
+            <span data-lang="de">Sprachen</span>
+        </h2>
         <div class="skills-grid">
             <div class="skill-item">
-                <span>German</span>
+                <span>
+                    <span data-lang="en" class="active">German</span>
+                    <span data-lang="de">Deutsch</span>
+                </span>
                 <span class="skill-level">●●●●</span>
             </div>
             <div class="skill-item">
-                <span>English</span>
+                <span>
+                    <span data-lang="en" class="active">English</span>
+                    <span data-lang="de">Englisch</span>
+                </span>
                 <span class="skill-level">●●●○</span>
             </div>
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageButtons = document.querySelectorAll('.language-btn');
+            
+            function setLanguage(lang) {
+                // Update buttons
+                languageButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.langBtn === lang);
+                });
+                
+                // Update content
+                document.querySelectorAll('[data-lang]').forEach(element => {
+                    element.classList.toggle('active', element.dataset.lang === lang);
+                });
+                
+                // Update HTML lang attribute
+                document.documentElement.lang = lang;
+            }
+            
+            languageButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const lang = btn.dataset.langBtn;
+                    setLanguage(lang);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
