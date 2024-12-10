@@ -9,9 +9,11 @@
         :root {
             --primary-color: #2d3748;
             --secondary-color: #4a5568;
-            --accent-color: #3182ce;
+            --accent-color: #2563eb;
             --background-color: #ffffff;
-            --light-gray: #f7fafc;
+            --light-gray: #f8fafc;
+            --border-color: #e2e8f0;
+            --hover-color: #f1f5f9;
         }
 
         * {
@@ -25,14 +27,24 @@
             background-color: var(--background-color);
             color: var(--primary-color);
             line-height: 1.6;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
 
+        @media print {
+            body {
+                padding: 0;
+            }
+            
+            .experience-item, .education-item, .skill-item {
+                break-inside: avoid;
+            }
+        }
+
         header {
-            margin-bottom: 2rem;
-            border-bottom: 2px solid var(--light-gray);
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 2rem;
         }
 
@@ -40,16 +52,27 @@
             color: var(--primary-color);
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
         }
 
         h2 {
             color: var(--accent-color);
             font-size: 1.5rem;
             margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::after {
+            content: "";
+            height: 2px;
+            background-color: var(--border-color);
+            flex-grow: 1;
         }
 
         h3 {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             font-size: 1.2rem;
             margin: 1rem 0 0.5rem;
         }
@@ -58,17 +81,20 @@
             color: var(--secondary-color);
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .summary {
             color: var(--secondary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            max-width: 60ch;
+            line-height: 1.8;
         }
 
         .contact-info {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
             margin-top: 1rem;
         }
 
@@ -78,46 +104,108 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s;
         }
 
         .contact-info a:hover {
-            text-decoration: underline;
+            background-color: var(--hover-color);
         }
 
         .section {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
         .experience-item, .education-item {
             margin-bottom: 1.5rem;
-            padding: 1rem;
+            padding: 1.5rem;
             background-color: var(--light-gray);
-            border-radius: 0.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
         .period {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .institution {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .location {
             color: var(--secondary-color);
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
         }
 
+        .details {
+            margin-top: 1rem;
+        }
+
+        .details ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1rem;
             margin-top: 1rem;
         }
 
         .skill-item {
-            padding: 0.5rem;
+            padding: 1rem;
             background-color: var(--light-gray);
-            border-radius: 0.25rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-2px);
         }
 
         .skill-level {
-            display: inline-block;
-            margin-left: 0.5rem;
             color: var(--accent-color);
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-item, .education-item {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -130,10 +218,10 @@
             Experience in embedded systems development and wireless sensing applications.
         </div>
         <div class="contact-info">
-            <a href="mailto:henrik.stumpf@gmx.de">henrik.stumpf@gmx.de</a>
-            <a href="tel:+13023901513">+1 (302) 390 1513</a>
-            <a href="https://maps.app.goo.gl/aV5QoSeGG8YBZx3DA">554 Santa Maria Ter #4, 94085 Sunnyvale, US</a>
-            <a href="https://de.linkedin.com/in/henrik-stumpf">LinkedIn: henrik-stumpf</a>
+            <a href="mailto:henrik.stumpf@gmx.de" aria-label="Email">henrik.stumpf@gmx.de</a>
+            <a href="tel:+13023901513" aria-label="Phone">+1 (302) 390 1513</a>
+            <a href="https://maps.app.goo.gl/aV5QoSeGG8YBZx3DA" aria-label="Address">Sunnyvale, CA</a>
+            <a href="https://de.linkedin.com/in/henrik-stumpf" aria-label="LinkedIn Profile">LinkedIn: henrik-stumpf</a>
         </div>
     </header>
 
@@ -142,10 +230,13 @@
         <div class="experience-item">
             <h3>Wireless Sensing AI Intern</h3>
             <div class="period">November 2024 - December 2024</div>
-            <div>Robert Bosch LLC - Research and Development, Sunnyvale</div>
-            <ul>
-                <li>Development of wireless sensing applications using multi-static ultra-wide band (UWB) radar</li>
-            </ul>
+            <div class="institution">Robert Bosch LLC - Research and Development</div>
+            <div class="location">Sunnyvale, California</div>
+            <div class="details">
+                <ul>
+                    <li>Development of wireless sensing applications using multi-static ultra-wide band (UWB) radar</li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -154,34 +245,44 @@
         <div class="education-item">
             <h3>Master's Thesis</h3>
             <div class="period">April 2024 - October 2024</div>
-            <div>Robert Bosch LLC - Renningen, Germany</div>
-            <div>Information und Automation</div>
-            <div>Grade: 1.1</div>
+            <div class="institution">Robert Bosch LLC</div>
+            <div class="location">Renningen, Germany</div>
+            <div class="details">
+                <ul>
+                    <li>Information und Automation</li>
+                    <li>Grade: 1.1 (Excellent)</li>
+                </ul>
+            </div>
         </div>
 
         <div class="education-item">
             <h3>Bachelor's Thesis</h3>
             <div class="period">October 2018 - September 2022</div>
-            <div>Karlsruhe Institute for Technology (KIT) - Karlsruhe, Germany</div>
-            <div>Conception, Development and Evaluation of Voice-Controlled Trunk Comfort Function</div>
-            <div>Grade: 1.5</div>
+            <div class="institution">Karlsruhe Institute for Technology (KIT)</div>
+            <div class="location">Karlsruhe, Germany</div>
+            <div class="details">
+                <ul>
+                    <li>Conception, Development and Evaluation of Voice-Controlled Trunk Comfort Function</li>
+                    <li>Grade: 1.5 (Very Good)</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section class="section">
-        <h2>Skills</h2>
+        <h2>Technical Skills</h2>
         <div class="skills-grid">
             <div class="skill-item">
-                Digital Signal Processing
-                <span class="skill-level">●●●○○</span>
+                <span>Digital Signal Processing</span>
+                <span class="skill-level">●●○○</span>
             </div>
             <div class="skill-item">
-                Machine Learning
-                <span class="skill-level">●●●○○</span>
+                <span>Machine Learning</span>
+                <span class="skill-level">●●○○</span>
             </div>
             <div class="skill-item">
-                PCB Design
-                <span class="skill-level">●○○○○</span>
+                <span>PCB Design</span>
+                <span class="skill-level">○○○○</span>
             </div>
         </div>
     </section>
@@ -190,12 +291,12 @@
         <h2>Languages</h2>
         <div class="skills-grid">
             <div class="skill-item">
-                German
-                <span class="skill-level">●●●●●</span>
+                <span>German</span>
+                <span class="skill-level">●●●●</span>
             </div>
             <div class="skill-item">
-                English
-                <span class="skill-level">●●●●○</span>
+                <span>English</span>
+                <span class="skill-level">●●●○</span>
             </div>
         </div>
     </section>
